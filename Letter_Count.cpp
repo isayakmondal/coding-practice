@@ -1,3 +1,34 @@
+
+// Gets accepted on SPOJ
+#include <iostream>
+using namespace std;
+
+// and as it's global default here it's set to 0
+int counter[125]; // may be require 122 (just take higher)
+
+int main(){
+
+    string s;
+    char ans;
+    int max = 0;
+    cin>>s;
+
+    for(int i = 0; i<s.size(); i++)
+        counter[s[i]]++;
+    
+    for(int i = 0; i<125; i++){
+        if(counter[i] > max){
+            max = counter[i];
+            ans = i;
+        }
+    }
+
+    cout<<ans<<'\n';
+    return 0;
+}
+
+//Correct but doesn't get accepted on SPOJ.
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -46,4 +77,4 @@ int main(int argc, char const *argv[])
     // cout<<it->first<<" "<<it->second;
 
     return 0;
-}
+} */
