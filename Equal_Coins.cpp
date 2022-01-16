@@ -43,13 +43,15 @@ int main()
     {
         long long x,y;
         cin>>x>>y;
-        if(x==0 ){cout<< "NO"<<endl;}
+        if(x==0 && y==0){cout<< "NO"<<endl;}
         // long long totalX= x*1;
         // long long totalY= y*2;
         // if(((totalX+totalY)%2==0)&&(x%2==0 && y%2==0)) cout<<"YES"<<endl;
         // else cout<<"NO"<<endl;
-        else if(x%2==0) cout<<"YES"<<endl;
+        else if(x%2==0 && y%2==0) cout<<"YES"<<endl;
         else cout<<"NO"<<endl;
+        if(x==0 || x%2==1) cout<<"NO"<<endl;
+        else cout<<"YES";
 
     }
 
