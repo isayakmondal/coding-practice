@@ -11,12 +11,28 @@ vector<int> global;
                 return;
             }
 
-            int temp = v[i];
-            temp+=v[i-1];
-            v.pop_back();
-            v.push_back(temp);
-            addRemove(v,i,ct+1);
+
+            if(i-1>0){
+                int temp = v[i];
+                temp+=v[i-1];
+                v.erase(v.begin()+i);
+                v[i-1]=temp;
+                addRemove(v,i+1,ct+1);
+            }
+            if(i+1<v.size()){
+
+                int temp = v[i];
+                temp+=v[i-1];
+                v.erase(v.begin()+i);
+                v[i-1]=temp;
+                addRemove(v,i+1,ct+1);
+
+            }
             
+            
+           
+            
+
             //Incomplete and probably incorrect
 
     }
@@ -36,7 +52,7 @@ int main(int argc, char const *argv[])
             cin>>v[i];
         }
 
-        addRemove(v,v.size()-1,0);
+        addRemove(v,0,0);
 
         auto it = min_element(global.begin(),global.end());
         cout<<*it<<endl;
