@@ -55,21 +55,65 @@
 // }
 
 
+// #include<bits/stdc++.h>
+
+// using namespace std;
+
+// int main(int argc, char const *argv[])
+// {
+//     vector<int> nums = {1,2,3,4,5,6,7,8};
+//     cout<<nums.size()<<endl;
+
+//     nums.erase(nums.begin()+0);
+
+//     cout<<nums.size()<<endl;
+//     for(auto & ele : nums){
+//         cout<<ele<<" ";
+//     }
+    
+   
+    
+
+//     return 0;
+// }
+
+//Binary Search
+
+
 #include<bits/stdc++.h>
 
 using namespace std;
 
+bool binarySearch1(int *arr, int n,int ele){
+
+    int low = 0;
+    int high = n-1;
+    
+
+    while (high>=low)
+    {       
+        int mid = (high+low)/2;
+
+        if(arr[mid]==ele) return true;
+        else if(ele>arr[mid]){
+            low = mid+1;
+        }else{
+            high = mid-1;
+        }
+    }
+    
+    return false;
+}
+
+
 int main(int argc, char const *argv[])
 {
-    vector<int> nums = {1,2,3,4,5,6,7,8};
-    cout<<nums.size()<<endl;
-
-    nums.erase(nums.begin()+0);
-
-    cout<<nums.size()<<endl;
-    for(auto & ele : nums){
-        cout<<ele<<" ";
-    }
+    
+    int arr[]={2,3,5,6,8,9,12,14};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    // cout<<binary_search(arr,arr+n,6);
+    cout<<binarySearch1(arr,n,4);
+    
     
    
     
