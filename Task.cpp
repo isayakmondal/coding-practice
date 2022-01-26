@@ -94,7 +94,7 @@ bool binarySearch1(int *arr, int n,int ele){
     {       
         int mid = (high+low)/2;
 
-        if(arr[mid]==ele) return true;
+        if(ele==arr[mid]) return true;
         else if(ele>arr[mid]){
             low = mid+1;
         }else{
