@@ -125,7 +125,7 @@ int main()
     // cin >> t;
     while (t--)
     {
-        int x = 64;
+        int x = 18;
         int bgp;
         for (int i = 2; i < x; i *=i)
         {
@@ -133,7 +133,8 @@ int main()
                 bgp = i;
         }
         cout<<bgp<<endl;
-        cout<<(__builtin_ctz(12));
+        cout<<(1<<(__builtin_ctz(18)));
+
     }
 
     return 0;
