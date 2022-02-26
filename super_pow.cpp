@@ -3,7 +3,7 @@ class Solution
 {
 public:
     const long long M = 1337;
-    const long long m = 1140;
+    const long long m = 1140;// ETF(1337) = 1140
 
     long long calc_power_iter(long long a, long long b)
     {
