@@ -71,11 +71,12 @@ int main()
     // printBinary(lsb);
     // printBinary(msb);
 
-    // cout << bitset<32>(uint32_t{0}-1);
+    // cout << bitset<32>(16);
     char ch = 'a';
     // printBinary(ch);
     // cout<<(char)(ch ^(1<<5));
     char upperCase = 'A';
-    cout<<(char)((upperCase | (1<<5)))<<endl;
+    cout<<(char)(upperCase+32)<<endl;
+    // cout<<(char)((upperCase | (1<<5)))<<endl;
     return 0;
 }
