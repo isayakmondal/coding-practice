@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 //Using ETF and Euler's Theorem
 class Solution
 {
