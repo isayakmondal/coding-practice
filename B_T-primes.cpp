@@ -33,13 +33,10 @@ int main()
         }
 
         for (int i = 0; i < n; i++)
-        {
-            ll ct = 0;
-            for (auto divisor : divisors[vn[i]])
-            {
-
-                ct++;
-            }
+        {   
+            
+             ll ct = divisors[vn[i]].size();
+    
 
             if (ct == 3)
             {
