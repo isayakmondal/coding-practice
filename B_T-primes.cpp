@@ -2,9 +2,9 @@
 
 using namespace std;
 
-#define ll long long
+#define ll  long long
 
-const ll N = 1e5 + 10;
+const ll N = 1e12 + 10;
 
 vector<vector<int>> divisors(N);
 
@@ -33,10 +33,9 @@ int main()
         }
 
         for (int i = 0; i < n; i++)
-        {   
-            
-             ll ct = divisors[vn[i]].size();
-    
+        {
+
+            ll ct = divisors[vn[i]].size();
 
             if (ct == 3)
             {
