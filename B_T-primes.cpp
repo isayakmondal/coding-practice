@@ -2,22 +2,44 @@
 
 using namespace std;
 
-#define ll  long long
+#define ll long long
 
-const ll N = 1e12 + 10;
+const ll N = 1e6 + 10;
 
-vector<vector<int>> divisors(N);
+vector<bool> prime(N, 1);
+
+bool isPrime(ll n)
+{   
+
+    return prime[n];
+}
+
+bool isPerfectSqr(ll n)
+{
+
+    if (n >= 0)
+    {
+        ll d = sqrt(n);
+        return (d * d == n);
+    }
+    return false;
+}
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    for (int i = 1; i < N; i++)
+
+    prime[0]=prime[1]=false;
+    for (int i = 2; i < N; i++)
     {
-        for (int j = i; j < N; j += i)
+        if (prime[i] == true)
         {
-            divisors[j].push_back(i);
+            for (int j = 2 * i; j < N; j += i)
+            {
+                prime[j] = false;
+            }
         }
     }
 
@@ -26,7 +48,7 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> vn(n);
+        vector<ll> vn(n);
         for (int i = 0; i < n; i++)
         {
             cin >> vn[i];
@@ -35,9 +57,7 @@ int main()
         for (int i = 0; i < n; i++)
         {
 
-            ll ct = divisors[vn[i]].size();
-
-            if (ct == 3)
+            if (isPerfectSqr(vn[i]) && isPrime(floor(sqrt(vn[i]))))
             {
                 cout << "YES" << endl;
             }
