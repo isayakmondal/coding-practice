@@ -12,24 +12,14 @@ void dfs(int v)
 {
 
     visited[v] = true;
-    
-    
-        for (int j = 0; j < graph[v].size(); j++)
-        {
-            cout<<graph[v][j]<<endl;
-        }
-        
-    
-    
-    
+
     for (auto &child : graph[v])
     {
-    cout << " Parent-> " << v << " Child-> "<< child<<endl;
-        // cout << child <<endl;
+        cout << " Parent-> " << v << " Child-> " << child << endl;
+
         if (visited[child])
             continue;
         dfs(child);
-        // cout<<endl;
     }
 }
 
