@@ -1,3 +1,5 @@
+
+// Extra modification for storing the connected componenets;
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -6,11 +8,13 @@ using namespace std;
 const int N = 1e5;
 vector<int> graph[N];
 vector<bool> visited(N, 0);
+vector<int> connected_ele;
 
 void dfs(int v)
 {
 
     visited[v] = true;
+    connected_ele.push_back(v);
     for (auto &&child : graph[v])
     {
         if (visited[child])
@@ -40,17 +44,29 @@ int main()
             graph[v].push_back(u);
         }
 
+        vector<vector<int>> cc;
         int ct = 0;
         for (int i = 1; i <= n; i++)
         {
+            connected_ele.clear();
             if (!visited[i])
             {
                 dfs(i);
+                cc.push_back(connected_ele);
                 ct++;
             }
         }
 
-        cout << ct << endl;
+        cout << cc.size() << endl;
+
+        for (auto &&each_cc : cc)
+        {
+            for (auto &&each_ele : each_cc)
+            {
+                cout << each_ele << " ";
+            }
+            cout << endl;
+        }
     }
 
     return 0;
