@@ -5,23 +5,42 @@
 using namespace std;
 
 #define ll long long
-const int N = 1e5;
+const static int N = 1e5;
 vector<int> graph[N];
-vector<bool> visited(N, 0);
-vector<int> connected_ele;
+bool visited[N];
 
-void dfs(int v)
+bool dfs(int V, int parent)
 {
 
-    visited[v] = true;
-    connected_ele.push_back(v);
-    for (auto &&child : graph[v])
+    visited[V] = true;
+    bool isLoopExists = false;
+    for (auto &&child : graph[V])
     {
+        if (visited[child] && child != parent)
+            return true;
         if (visited[child])
             continue;
-
-        dfs(child);
+        isLoopExists |= dfs(child, V);
     }
+    return isLoopExists;
+}
+
+bool isCycle(int V)
+{
+    // Code here
+
+    bool isLoopExists = false;
+    for (int i = 0; i <= V; i++)
+    {
+        if (visited[i])
+            continue;
+        if (dfs(i, -1))
+        {
+            isLoopExists = true;
+            break;
+        }
+    }
+    return isLoopExists;
 }
 
 int main()
@@ -44,29 +63,19 @@ int main()
             graph[v].push_back(u);
         }
 
-        vector<vector<int>> cc;
-        int ct = 0;
-        for (int i = 1; i <= n; i++)
-        {
-            connected_ele.clear();
-            if (!visited[i])
-            {
-                dfs(i);
-                cc.push_back(connected_ele);
-                ct++;
-            }
-        }
+        // vector<vector<int>> cc;
+        cout << isCycle(n) << endl;
 
-        cout << cc.size() << endl;
+        // cout << cc.size() << endl;
 
-        for (auto &&each_cc : cc)
-        {
-            for (auto &&each_ele : each_cc)
-            {
-                cout << each_ele << " ";
-            }
-            cout << endl;
-        }
+        //     for (auto &&each_cc : cc)
+        //     {
+        //         for (auto &&each_ele : each_cc)
+        //         {
+        //             cout << each_ele << " ";
+        //         }
+        //         cout << endl;
+        //     }
     }
 
     return 0;
