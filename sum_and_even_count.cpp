@@ -21,23 +21,57 @@ void sumOfSubtree(int v, int par)
     subtree_sum[v] = v;
     for (auto &&child : tree[v])
     {
-        if (child == par) continue;
+        if (child == par)
+            continue;
         sumOfSubtree(child, v);
         subtree_sum[v] += subtree_sum[child];
     }
+}
+// Without using any extra space.
+int __sumOfSubtree(int v, int par)
+{
+
+    int sum = 0;
+    for (auto &&child : tree[v])
+    {
+        if (child == par)
+            continue;
+        sum += __sumOfSubtree(child, v);
+    }
+    return v + sum;
 }
 
 void evenCount(int v, int par)
 {
 
-    even_ct[v] = v;
+    if (v % 2 == 0)
+    {
+        even_ct[v]++;
+    }
+
     for (auto &&child : tree[v])
     {
-        if (child == par) continue;
+        if (child == par)
+            continue;
+
+
         evenCount(child, v);
-        if(even_ct[child]%2==0)
-        even_ct[v]+=even_ct[child];
+        even_ct[v] += even_ct[child];
     }
+}
+
+// Without using extra space
+int __evenCount(int v, int par)
+{
+
+    int count = 0;
+    for (auto &&child : tree[v])
+    {
+        if (child == par)
+            continue;
+        count += __evenCount(child, v);
+    }
+    return v % 2 == 0 ? count + 1 : count;
 }
 
 int main()
@@ -56,8 +90,10 @@ int main()
     }
 
     // sumOfSubtree(1, 0);
-    evenCount(1,0);
-    cout<<even_ct[1];
+    // evenCount(1, 0);
+    // cout<<subtree_sum[2];
+    evenCount(4, 3);
+    cout << even_ct[4];
     // ll t = 1;
     // cin >> t;
     // while (t--)

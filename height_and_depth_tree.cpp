@@ -86,7 +86,7 @@ int main()
         //     cout << i << " -> " << depth[i] << " " << height[i] << endl;
         // }
         getDepth(1, 0, 0, 5);
-        cout << getHeight(2,1)<< endl;
+        cout << getHeight(3,1)<< endl;
     }
 
     return 0;
