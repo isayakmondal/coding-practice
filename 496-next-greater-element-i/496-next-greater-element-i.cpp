@@ -17,15 +17,6 @@ public:
             
         }
         vector<int> ans;
-        // return {nums2[NGE[nums1[1]]]};
-        // for(int i= 0 ; i<nums1.size();i++){
-        //     if(NGE[nums1[i]]==-1){
-        //         ans[i] = -1;
-        //     }else{
-        //     ans[i] = nums2[NGE[nums1[i]]];
-        //     }
-        // }
-        
         for(auto ele : nums1){
             ans.push_back(nge.count(ele)?nge[ele]:-1);
             
