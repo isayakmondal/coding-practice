@@ -1,1 +1,2 @@
-​
+We solve NGE by stack to get to a time complexity of O(N).
+We take each elements and check if the stack in not empty and if the element is greater than the element present in the top of the stack. If this is the case then we can assign `nge[stack.top()] =element` .
