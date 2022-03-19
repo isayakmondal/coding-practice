@@ -60,9 +60,9 @@ int bfs(string src, string des)
         {
             int new_X = x + path.first;
             int new_Y = y + path.second;
-            if (vis[new_X][new_Y])
+            if (!isValid(new_X, new_Y))
                 continue;
-            if (isValid(new_X, new_Y))
+            if (!vis[new_X][new_Y])
             {
 
                 q.push({new_X, new_Y});
@@ -75,6 +75,19 @@ int bfs(string src, string des)
     return level[des_X][des_Y];
 }
 
+void reset(){
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            level[i][j]=0;
+            vis[i][j]=0;
+        }
+        
+    }
+    
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -85,6 +98,7 @@ int main()
     cin >> t;
     while (t--)
     {
+        reset();
         string a, b;
         cin >> a >> b;
         cout << bfs(a, b) << endl;
