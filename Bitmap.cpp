@@ -50,6 +50,7 @@ void reset()
             // graph[i][j]=0;
             vis[i][j] = false;
             level[i][j] = 0;
+            v.clear();
         }
     }
 }
@@ -120,7 +121,9 @@ int main()
         {
             for (int j = 0; j < m; j++)
             {
-                cout<<level[i][j]<<" ";
+                if(j==m-1) cout<<level[i][j];
+                else cout<<level[i][j]<<" ";
+                
             }
             cout<<endl;
         }
