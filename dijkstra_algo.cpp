@@ -14,7 +14,7 @@ using namespace std;
 const int N = 1e5+10;
 vector<pair<int, int>> g[N];
 
-void dijkstra(int src){
+int dijkstra(vector<pair<int, int>> graph[N] ,int src, int n){
 
     vector<int> distance(N,INF);
     multiset<pair<int, int>> m;
@@ -39,11 +39,37 @@ void dijkstra(int src){
             }
         }
 
-        
+       
         
     }
-    
+     int ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if(distance[i]==INF) return -1;
+            ans = max(ans,distance[i]);
+        }
+    return ans;
 }
+
+
+
+int networkDelayTime(vector<vector<int>>& times, int n, int k) {
+
+    vector<pair<int, int>> graph[N];
+    for (auto &&vec : times)
+    {
+        int u = vec[0];
+        int v = vec[1];
+        int w = vec[2];
+
+        graph[u].push_back({v,w});
+    }
+
+    return dijkstra(graph, k,n);
+
+
+
+ }
 
 int main()
 {
