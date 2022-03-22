@@ -1,6 +1,7 @@
 class Solution {
 public:
-    #define ll long long
+    
+#define ll long long
 #define INF INT_MAX
 
 const static int N = 1e5+10;
