@@ -12,25 +12,16 @@ class Solution {
 public:
     int getDecimalValue(ListNode* head) {
         
-        int size=0;
+       ListNode * temp = head;
+        int ans = 0;
         
-        ListNode *temp = head;
         while(temp!=NULL){
-            size++;
-            temp = temp->next;
             
-        }
-        temp = head;
-        int sum = 0;
-        int data;
-        while(temp!=NULL){
-            data = temp->val;
-            if(data!=0)
-            sum+=pow(2,size-1);
-            size--;
+            ans*=2;
+            ans+=(temp->val);
             temp = temp->next;
         }
         
-        return sum;
+        return ans;
     }
 };
