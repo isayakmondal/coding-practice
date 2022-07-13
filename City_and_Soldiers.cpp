@@ -14,7 +14,7 @@ void make_set(int a)
     parent[a] = a;
     size[a] = 1;
 }
-
+//Hey 
 int find_set(int a)
 {
 
@@ -55,7 +55,6 @@ int main()
         {
             make_set(i);
         }
-        while (q--)
         {
             int choice;
             cin >> choice;
@@ -85,6 +84,6 @@ int main()
             }
         }
     }
-
+    
     return 0;
 }
