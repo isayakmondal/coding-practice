@@ -1,1 +1,1 @@
-This is a better approach as we are only traversing the list only once. We are assuming every node to be the last node and if it's not we're gonna mulitply 2 with the previous value.
+​
