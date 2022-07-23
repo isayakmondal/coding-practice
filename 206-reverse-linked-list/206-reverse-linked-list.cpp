@@ -10,19 +10,21 @@
  */
 class Solution {
 public:
+    //Recursive
+    ListNode* reverse_rec(ListNode *head){
+        
+       if(head->next==NULL) return head;
+       ListNode * newHead = reverse_rec(head->next);
+       head->next->next = head;
+       head->next=NULL; 
+        
+       return newHead; 
+        
+    }
     ListNode* reverseList(ListNode* head) {
-        //Iterative
-        if(head==NULL) return head;
-        ListNode *p=NULL, *c=head, *n=head->next;
+      
+        if(head==NULL) return NULL;
+        return reverse_rec(head);
         
-        while(c!=NULL){
-            
-            c->next = p;
-            p=c;
-            c=n;
-            if(n!=NULL)n=n->next;
-        }
-        
-        return p;
     }
 };
