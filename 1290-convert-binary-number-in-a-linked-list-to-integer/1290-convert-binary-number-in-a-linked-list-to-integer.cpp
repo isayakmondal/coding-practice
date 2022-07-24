@@ -17,7 +17,7 @@ public:
         
         while(temp!=NULL){
             
-            ans*=2;
+            ans<<=1;
             ans+=(temp->val);
             temp = temp->next;
         }
