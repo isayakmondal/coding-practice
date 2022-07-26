@@ -10,23 +10,18 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         
-        bool ans = false;
-        unordered_set<ListNode *> u;
+      ListNode * walker=head, *runner = head; // Runner is twice as fast as walker
         
-        ListNode *temp=head;
-        
-        while(temp!=NULL){
+        while(runner && runner->next){
             
-            u.insert(temp);
-            temp=temp->next;
+            walker=walker->next;
+            runner=runner->next->next;
             
-            if(u.find(temp)!=u.end()){
-                ans = true;
-                break;
-            }
+            if(runner==walker) return true;
+            
             
         }
         
-        return ans;
+        return false;
     }
 };
