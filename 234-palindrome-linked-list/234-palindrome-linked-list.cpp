@@ -48,7 +48,7 @@ public:
         ListNode *mid, *midcpy,*rev=head, *temp2=head;
         
         mid = middle(head);
-        midcpy = mid;
+        // midcpy = mid;
         // midcpy->next=NULL;
         
         rev = reverseList(mid);
