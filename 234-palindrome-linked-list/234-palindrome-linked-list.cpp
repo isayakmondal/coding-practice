@@ -22,9 +22,8 @@ public:
             c->next=p;
             p=c;
             c=n;
-            if(n!=NULL) 
-            n=n->next;
-           
+            if(n!=NULL) n=n->next;
+
             
         }
         return p;
@@ -45,12 +44,10 @@ public:
     
     bool isPalindrome(ListNode* head) {
         
-        ListNode *mid, *midcpy,*rev=head, *temp2=head;
+        ListNode *mid, *rev=head, *temp2=head;
         
         mid = middle(head);
-        // midcpy = mid;
-        // midcpy->next=NULL;
-        
+       
         rev = reverseList(mid);
         
         while(rev!=NULL && temp2!=mid){
