@@ -1,7 +1,7 @@
 class MyStack {
 public:
     
-      queue<int> q1, q2;
+      queue<int> q1;
     MyStack() {
         
       
@@ -10,12 +10,14 @@ public:
     
     void push(int x) {
         
-        q2.push(x);
-        while(!q1.empty()){
-            q2.push(q1.front());
+        q1.push(x);
+        int qSize = q1.size()-1;
+        while(qSize--){
+            
+            int val = q1.front();
             q1.pop();
+            q1.push(val);
         }
-        swap(q1,q2);
         
     }
     
